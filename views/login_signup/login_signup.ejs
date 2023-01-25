@@ -1,0 +1,14 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+<div class="crd">
+    <h2><%=forBtn%></h2>
+    <form method="post" action="/<%=title%>" class="fr-crd">
+        <input autocomplete="off" name="email" placeholder="Email" type="email">
+        <input autocomplete="off" name="password" type="password" placeholder="Password">
+        <button class="cus-btn" type="submit"><%=forBtn%> </button>
+    </form>
+</div>
+</div>
+
+<%- include("../partials/footer") %>

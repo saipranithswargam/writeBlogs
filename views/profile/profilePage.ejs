@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+<div class="user-profile">
+    <div class="profile-card">
+        <div class="user-details">
+            <p>Gmail : <%=user.email%></p>
+            <p>Total Blogs: <%=count%></p>
+            <form action="/compose" method="post">
+                <button type="submit" class="cus-btn"
+                name="userId" value="<%=user.id%>">Compose NewBlog</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <% for(var i=0; i<blogData.length ;i++){%>
+    <div class="blog-card">
+      <h3><%=blogTitle[i]%></h3>
+        <p>
+            <%=blogData[i]%>
+        </p>
+    </div>
+<% } %>
+<%- include("../partials/footer") %>

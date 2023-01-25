@@ -1,0 +1,14 @@
+<%- include("../partials/header") %>
+
+<div>
+    <form class="composeForm" method="post" action="/composedPost">
+        <label>Title</label>
+        <input name="title">
+        <label>Blog</label>
+        <textarea rows="10" cols="10" name="blogContent"></textarea>
+        <button name="userId" value="<%=userId%>" class="cus-btn" type="submit">Compose</button>
+    </form>
+</div>
+
+
+<%- include("../partials/footer") %>
