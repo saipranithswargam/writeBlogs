@@ -1,3 +1,3 @@
 # writeBlogs
-* this is a blogging website
+* This is a blogging webapp
 * still under development
