@@ -103,11 +103,12 @@ footer{
 }
 .crd{
     height: 50vh;
-    width: 40vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    transition: all 0.5s ease-in-out;
     border-radius: 30px;
     box-shadow: -1px 2px 6px rgb(151, 149, 149);
 }
@@ -163,13 +164,13 @@ footer{
     font-size: larger;
 }
 .blog-card{
-    width: 80vw;
+    min-width: 80vw;
     height: fit-content;
     margin: 0rem auto;
     margin-top: 1rem;
     background-color : white;
     border-radius: 9px;
-    padding: 1rem 3rem;
+    padding: 1rem 1.5rem;
 }
 .blogs-containter{
     display: grid;
@@ -197,6 +198,45 @@ footer{
     font-weight: 800;
 }
 
+
+/*keyframes/resopnsiveness*/
+@media(max-width:1060px){
+    .intro-div{
+        flex-direction: column-reverse;
+        margin-top: 1.5rem;
+        padding: 0;
+    }
+    .gif{
+        text-align: center;
+    }
+    .content{
+        margin-bottom: 2rem;
+        margin-top:2rem;
+        padding: 0;
+    }
+}
+@media (max-width:400px){
+    .gif img{
+        height: 10rem;
+    }
+    .content h1{
+        font-size: large;
+    }
+    .cus-btn{
+        padding: 0.5rem 1rem;
+    }
+    .dev-phase{
+        font-size: medium;
+        font-weight: 600;
+    }
+    .custom{
+        padding: 5px 5px !important;
+    }
+    .crd{
+        width: 90vw;
+    }
+}
+
 /* animations */
 .gif img:hover{
     scale: 1.15;
@@ -205,4 +245,66 @@ footer{
 .cus-btn:hover{
     scale: 1.05;
     transition: all 0.5s ease-in;
+}
+.dev-phase p{
+    animation-name: moveFromAbove;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+.left{
+    animation-name: moveFromLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+.right{
+    animation-name: moveFromRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+
+
+@keyframes moveFromRight{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80%{
+        opacity: 0.9;
+        transform: translate(-3px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveFromLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        opacity: 0.9;
+        transform: translate(3px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveFromAbove{
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    80%{
+        opacity: 0.9;
+        transform: translateY(3px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
 }

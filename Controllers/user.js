@@ -40,7 +40,8 @@ exports.createNewUser = (req, res) => {
                         blogTitle.push(blog.blogTitle);
                     });
                     res.render("profile/profilePage", {
-                        user: result,
+                        email:email,
+                        userId:result.id,
                         blogData: blogData,
                         blogTitle: blogTitle,
                         count: count,
@@ -75,10 +76,11 @@ exports.FindUser = (req, res) => {
                         blogTitle.push(blog.blogTitle);
                     });
                     res.render("profile/profilePage", {
-                        user: result,
+                        email:email,
                         blogData: blogData,
                         blogTitle: blogTitle,
                         count: count,
+                        userId:result.id,
                     });
                 })
                 .catch((err) => {

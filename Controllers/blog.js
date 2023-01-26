@@ -4,8 +4,10 @@ exports.CreateBlog = (req, res) => {
     const blogTitle = req.body.title;
     const blogContent = req.body.blogContent;
     const userId = req.body.userId;
+    let userEmail;
     User.findByPk(userId)
         .then((result) => {
+            userEmail = result.email;
             return result;
         })
         .then((user) => {
@@ -17,6 +19,7 @@ exports.CreateBlog = (req, res) => {
         .then((result) => {
             Blog.findAndCountAll({ where: { userId: userId } })
                 .then((result2) => {
+                    console.log(result2);
                     const count = result2.count;
                     const blogData = [];
                     const blogTitle = [];
@@ -25,7 +28,8 @@ exports.CreateBlog = (req, res) => {
                         blogTitle.push(blog.blogTitle);
                     });
                     res.render("profile/profilePage", {
-                        user: result,
+                        userId: userId,
+                        email:userEmail,
                         blogData: blogData,
                         blogTitle: blogTitle,
                         count: count,

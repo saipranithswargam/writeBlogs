@@ -2,11 +2,11 @@
 <div class="user-profile">
     <div class="profile-card">
         <div class="user-details">
-            <p>Gmail : <%=user.email%></p>
+            <p>Gmail : <%=email%></p>
             <p>Total Blogs: <%=count%></p>
             <form action="/compose" method="post">
                 <button type="submit" class="cus-btn"
-                name="userId" value="<%=user.id%>">Compose NewBlog</button>
+                name="userId" value="<%=userId%>">Compose NewBlog</button>
             </form>
         </div>
     </div>
