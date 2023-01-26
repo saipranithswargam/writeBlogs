@@ -3,9 +3,9 @@
 <div>
     <form class="composeForm" method="post" action="/composedPost">
         <label>Title</label>
-        <input name="title">
+        <input name="title" required>
         <label>Blog</label>
-        <textarea rows="10" cols="10" name="blogContent"></textarea>
+        <textarea required rows="10" cols="10" name="blogContent"></textarea>
         <button name="userId" value="<%=userId%>" class="cus-btn" type="submit">Compose</button>
     </form>
 </div>

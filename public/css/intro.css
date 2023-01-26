@@ -29,6 +29,12 @@ footer{
     align-items: center;
     background-color: #d2f5e1;
 }
+.dev-phase{
+    text-align: center;
+    font-size: larger;
+    font-weight: 900;
+    background-color: #d5e9f9;
+}
 .brand{
     font-weight: 800;
     font-family: 'Cedarville Cursive', cursive;
@@ -165,7 +171,11 @@ footer{
     border-radius: 9px;
     padding: 1rem 3rem;
 }
-
+.blogs-containter{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 5rem;
+}
 /*compose Page*/
 .composeForm{
     display: flex;
