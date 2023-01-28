@@ -11,6 +11,7 @@
         </div>
     </div>
 </div>
+<% if(blogData.length!=0){ %>
 <div class="blogs-containter">
     <% for(var i=0; i<blogData.length ;i++){%>
     <div class="blog-card">
@@ -27,4 +28,5 @@
     </div>
 <% } %>
 </div>
+<%}%>
 <%- include("../partials/footer") %>

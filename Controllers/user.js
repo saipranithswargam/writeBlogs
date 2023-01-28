@@ -35,9 +35,12 @@ exports.createNewUser = (req, res) => {
                     const count = result2.count;
                     const blogData = [];
                     const blogTitle = [];
+                    const blogIds = [];
+
                     result2.rows.forEach((blog) => {
                         blogData.push(blog.blogContent);
                         blogTitle.push(blog.blogTitle);
+                        blogIds.push(blog.id);
                     });
                     res.render("profile/profilePage", {
                         email:email,
@@ -45,6 +48,7 @@ exports.createNewUser = (req, res) => {
                         blogData: blogData,
                         blogTitle: blogTitle,
                         count: count,
+                        blogIds:blogIds,
                     });
                 })
                     }
@@ -71,9 +75,11 @@ exports.FindUser = (req, res) => {
                     const count = result2.count;
                     const blogData = [];
                     const blogTitle = [];
+                    const blogIds = [];
                     result2.rows.forEach((blog) => {
                         blogData.push(blog.blogContent);
                         blogTitle.push(blog.blogTitle);
+                        blogIds.push(blog.id);
                     });
                     res.render("profile/profilePage", {
                         email:email,
@@ -81,6 +87,7 @@ exports.FindUser = (req, res) => {
                         blogTitle: blogTitle,
                         count: count,
                         userId:result.id,
+                        blogIds:blogIds,
                     });
                 })
                 .catch((err) => {
