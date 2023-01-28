@@ -22,7 +22,6 @@ sequalise.sync().then(()=>{
     console.log(err);
 })
 const port = process.env.PORT||3000;
-// port = 3000
 app.listen(port,()=>{
     console.log(`running on port ${port}`);
 })

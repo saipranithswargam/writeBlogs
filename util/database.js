@@ -4,4 +4,4 @@ const sequlise = new Sequlise(process.env.DB_NAME,process.env.USER,process.env.D
 
 // const sequlise = new Sequlise('writeblogs','root','123456789',{dialect:'mysql',host:'localhost'})
 
-module.exports = sequlise;
+module.exports = sequlise;  

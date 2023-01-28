@@ -1,4 +1,3 @@
-const e = require("express");
 const User = require("../model/user");
 const Blogs = require("../model/blogs");
 const Cryptr = require("cryptr");
@@ -68,6 +67,7 @@ exports.FindUser = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({ where: { email: email } }).then((result) => {
+        if(result){
         const resultPassword = cryptr.decrypt(result.password);
         if (resultPassword === password) {
             Blogs.findAndCountAll({ where: { userId: result.id } })
@@ -96,5 +96,9 @@ exports.FindUser = (req, res) => {
         } else {
             res.send("Incorret password please try again !");
         }
+    }else{
+        res.send("No such user exits please try again !")
+    }
     });
+
 };
