@@ -23,7 +23,9 @@ exports.CreateBlog = (req, res) => {
                     const count = result2.count;
                     const blogData = [];
                     const blogTitle = [];
+                    const blogIds = [];
                     result2.rows.forEach((blog) => {
+                        blogIds.push(blog.id);
                         blogData.push(blog.blogContent);
                         blogTitle.push(blog.blogTitle);
                     });
@@ -32,6 +34,7 @@ exports.CreateBlog = (req, res) => {
                         email:userEmail,
                         blogData: blogData,
                         blogTitle: blogTitle,
+                        blogIds:blogIds,
                         count: count,
                     });
                 })
@@ -43,3 +46,44 @@ exports.CreateBlog = (req, res) => {
             console.log(err);
         });
 };
+exports.deleteBlog = (req,res)=>{
+    const id = req.body.blogId;
+    const userId = req.body.userId;
+    Blog.destroy({
+        where:{
+          id:id
+        }
+      })
+    User.findByPk(userId)
+      .then((result) => {
+          userEmail = result.email;
+          return result;
+      })       .then((result) => {
+        Blog.findAndCountAll({ where: { userId: userId } })
+            .then((result2) => {
+                const count = result2.count;
+                const blogData = [];
+                const blogTitle = [];
+                const blogIds = [];
+                result2.rows.forEach((blog) => {
+                    blogIds.push(blog.id);
+                    blogData.push(blog.blogContent);
+                    blogTitle.push(blog.blogTitle);
+                });
+                res.render("profile/profilePage", {
+                    userId: userId,
+                    email:userEmail,
+                    blogData: blogData,
+                    blogTitle: blogTitle,
+                    blogIds:blogIds,
+                    count: count,
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}

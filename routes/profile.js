@@ -7,4 +7,7 @@ Router.post("/compose",(req,res)=>{
 })
 
 Router.post("/composedPost",BlogController.CreateBlog);
+
+Router.post("/deleteBlog",BlogController.deleteBlog);
+
 module.exports = Router;

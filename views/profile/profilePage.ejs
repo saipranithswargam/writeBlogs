@@ -14,6 +14,12 @@
 <div class="blogs-containter">
     <% for(var i=0; i<blogData.length ;i++){%>
     <div class="blog-card">
+    <form style="text-align: right;margin-bottom: 0.3rem;" action="/deleteBlog" method="post">
+    <button style="border: none;" type="submit" name="blogId" value="<%=blogIds[i]%>">
+    <input type="hidden" name="userId" value="<%=userId%>" >
+    <i class="fa-solid fa-trash"></i>
+    </button>
+    </form>
       <h3><%=blogTitle[i]%></h3>
         <p>
             <%=blogData[i]%>
